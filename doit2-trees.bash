@@ -13,7 +13,7 @@ mkdir -p ${TREES}
 
 echo 1>&2 '# Run FastTreeMP'
 export OMP_NUM_THREADS=${THREADS}
-FastTreeMP -nt -gtr ${ROARY}/*/core_gene_alignment.aln > ${TREES}/tree.phy
+FastTreeMP -nt -gtr ${ROARY}/core_gene_alignment.aln > ${TREES}/tree.phy
 
 
 # ------------------------------------------------------------------------
