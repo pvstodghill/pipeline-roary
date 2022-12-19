@@ -11,7 +11,12 @@ rm -rf ${ROARY}
 # ------------------------------------------------------------------------
 
 echo 1>&2 '# Run Roary'
-roary -v -e -mafft -p ${THREADS} -f ${ROARY}/ -r ${INPUTS}/*.gff
+roary -v -e -mafft ${ROARY_ARGS} -p ${THREADS} -f ${ROARY}/ -r ${INPUTS}/*.gff
+
+if [ ! -e ${ROARY}/core_gene_alignment.aln ] ; then
+    echo 1>&2 "## Roary failed."
+    exit 1
+fi
 
 # ------------------------------------------------------------------------
 # Done.

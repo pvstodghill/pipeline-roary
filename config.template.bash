@@ -9,6 +9,10 @@ GENOMES_EXT=.gff+fna
 
 # ------------------------------------------------------------------------
 
+# ROARY_ARGS="-g 60000" # increase the max number of clusters from 50000.
+
+# ------------------------------------------------------------------------
+
 # Uncomment to get packages from HOWTO
 PACKAGES_FROM=howto
 
