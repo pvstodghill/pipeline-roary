@@ -21,19 +21,22 @@ else
     _conda=conda
 fi
 
-if [ "$1" = -f -o ! -d ${CONDA_PREFIX}/envs/${NAME} ] ; then
-    (
-	set -x
-	conda env remove -y --name ${NAME}
-	conda create -y --name ${NAME}
-    )
+function __ {
+    echo + "$@"
+    eval "$@"
+}
+
+if [ "$1" = -f ] ; then
+    __ conda env remove -y --name ${NAME}
 fi
 
-echo + conda activate ${NAME}
-conda activate ${NAME}
+_install=update
+if [ ! -d ${CONDA_PREFIX}/envs/${NAME} ] ; then
+    __ conda create -y --name ${NAME}
+    _install=install
+fi
+__ conda activate ${NAME}
 
-set -x
+__ $_conda $_install -y ${PACKAGES}
 
-$_conda install -y ${PACKAGES}
-
-#pip install FIXME
+# __ pip $_install FIXME
