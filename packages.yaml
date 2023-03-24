@@ -1,0 +1,6 @@
+---
+image: pvstodghill/pipeline-roary
+version: 2023-03-24
+commands:
+  - FastTreeMP
+  - roary
