@@ -7,6 +7,11 @@
 GENOMES_DIR=/.../data/6_final
 GENOMES_EXT=.gff+fna
 
+# # Genomes to remove before processing
+# OUTGROUPS=
+# OUTGROUPS+=" Name1"
+# OUTGROUPS+=" Name2"
+
 # ------------------------------------------------------------------------
 
 # ROARY_ARGS="-g 60000" # increase the max number of clusters from 50000.
