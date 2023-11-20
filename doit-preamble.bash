@@ -106,3 +106,4 @@ export LC_ALL=C
 INPUTS=${DATA}/0_inputs
 ROARY=${DATA}/1_roary
 TREES=${DATA}/2_trees
+PA=${DATA}/3_pa
