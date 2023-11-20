@@ -15,8 +15,8 @@ PACKAGES=
 
 PACKAGES+=" fasttree"
 PACKAGES+=" kraken"
-PACKAGES+=" r-ggplot2"
 PACKAGES+=" roary"
+PACKAGES+=" r-ape"
 
 if [ "$(type -p mamba)" ] ; then
     _conda="mamba --no-banner"
@@ -35,11 +35,18 @@ fi
 
 _install=update
 if [ ! -d ${CONDA_PREFIX}/envs/${NAME} ] ; then
-    __ conda create -y --name ${NAME}
+    __ $_conda create -y --name ${NAME}
+    __ $_conda config --add channels r
+    __ $_conda config --add channels defaults
+    __ $_conda config --add channels conda-forge
+    __ $_conda config --add channels bioconda
     _install=install
 fi
+
 __ conda activate ${NAME}
 
-__ $_conda $_install -y ${PACKAGES}
+
+__ $_conda $_install -y --no-channel-priority ${PACKAGES}
 
 # __ pip $_install FIXME
+
