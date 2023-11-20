@@ -2,6 +2,12 @@
 
 . $(dirname ${BASH_SOURCE[0]})/doit-preamble.bash
 
+if [ "$SKIP_FASTTREE" ] ; then
+    echo 1>&2 '# Skipping FastTreeMP'
+    exit
+fi
+
+
 # ------------------------------------------------------------------------
 
 rm -rf ${TREES}
